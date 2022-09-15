@@ -12,17 +12,23 @@ Mediante la dependencia [Express](http://expressjs.com/) y [Cors] realizamos la 
 
 ## Creación Scaffold (Estructura de carpetas)
 
-`models`: Carpeta correspondiente a la Base de datos.
+[models](https://github.com/kvto/API/tree/main/models): Carpeta correspondiente a la Base de datos.
 
-`controllers`: Carpeta correspondiente a los controladores.
+[controllers](https://github.com/kvto/API/tree/main/controllers): Carpeta correspondiente a los controladores.
 
-`routers`: Carpeta correspondiente a las rutas.
+[routers](https://github.com/kvto/API/tree/main/routes): Carpeta correspondiente a las rutas.
 
-`config`: Carpeta correspondiente a la configuracion de la Base de datos o conexiones externas.
+[config](https://github.com/kvto/API/tree/main/config): Carpeta correspondiente a la configuracion de la Base de datos o conexiones externas.
 
 `utils`: Carpeta correspondiente a las funciones (Helpers).
 
 `storage`: Carpeta correspondiente al almacenamiento de archivos.
 
-## Creación de la conexion a nuestra Base de Datos.
+## Instalación de [Mongoose](https://mongoosejs.com/) y la creación de la conexion a nuestra Base de Datos.
+
+`npm i mongoose -S` para luego establecer mediante funciones la respectiva conexión (Utilizando las respectivas variables de entorno y los parameteros que Mongoose maneja)
+
+## Declaramos los modelos 
+
+`models -> nosql` donde estara nuestros modelos vinculados a Mongo en el archivo `nosql.js`
 
