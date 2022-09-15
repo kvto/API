@@ -6,6 +6,10 @@
 
 `npm i express cors dotenv multer`
 
+## Creación Aplicacion Express
+
+Mediante la dependencia [Express](http://expressjs.com/) y [Cors] realizamos la conexion asignandole una variale `PORT`
+
 ## Creación Scaffold (Estructura de carpetas)
 
 `models`: Carpeta correspondiente a la Base de datos.
@@ -19,3 +23,6 @@
 `utils`: Carpeta correspondiente a las funciones (Helpers).
 
 `storage`: Carpeta correspondiente al almacenamiento de archivos.
+
+## Creación de la conexion a nuestra Base de Datos.
+
