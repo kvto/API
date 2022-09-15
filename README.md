@@ -20,9 +20,9 @@ Mediante la dependencia [Express](http://expressjs.com/) y [Cors] realizamos la 
 
 [config](https://github.com/kvto/API/tree/main/config): Carpeta correspondiente a la configuracion de la Base de datos o conexiones externas.
 
-`utils`: Carpeta correspondiente a las funciones (Helpers).
+[utils](https://github.com/kvto/API/tree/main/utils): Carpeta correspondiente a las funciones (Helpers).
 
-`storage`: Carpeta correspondiente al almacenamiento de archivos.
+[storage](https://github.com/kvto/API/tree/main/storage): Carpeta correspondiente al almacenamiento de archivos.
 
 ## Instalación de [Mongoose](https://mongoosejs.com/) y la creación de la conexion a nuestra Base de Datos.
 
@@ -30,5 +30,5 @@ Mediante la dependencia [Express](http://expressjs.com/) y [Cors] realizamos la 
 
 ## Declaramos los modelos 
 
-`models -> nosql` donde estara nuestros modelos vinculados a Mongo en el archivo `nosql.js`
+`models -> nosql` donde estara nuestros modelos vinculados a Mongo en el archivo [nosql.js](https://github.com/kvto/API/tree/main/models/nosql)
 
