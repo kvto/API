@@ -32,3 +32,6 @@ Mediante la dependencia [Express](http://expressjs.com/) y [Cors] realizamos la 
 
 `models -> nosql` donde estara nuestros modelos vinculados a Mongo en el archivo [nosql.js](https://github.com/kvto/API/tree/main/models/nosql)
 
+## Creación de rutas (`users, tracks y storage`)
+
+Rutas que nos permiten crear y obtener informacion para 
