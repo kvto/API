@@ -1,3 +1,4 @@
+//funcion vuelve nombres de las rutas sin.js
 const express = require('express');
 const fs = require('fs');
 
