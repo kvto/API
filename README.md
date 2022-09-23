@@ -38,8 +38,9 @@ Rutas que nos permiten crear y obtener informacion de nuestra API
 
 ## Creación de los controladores de [track](https://github.com/kvto/API/blob/main/controllers/tracks.js) y [storage](https://github.com/kvto/API/blob/main/controllers/storage.js)
 
-Basandonos en los modelos que previamente creamos, nos enfocamos en crear las distintas funciones que se van a encargar de crear, eliminar, obtener y actualizar toda la informacion que manejaremos.
+Basandonos en los modelos que previamente creamos, nos enfocamos en crear las distintas funciones que se van a encargar de crear, eliminar, obtener y actualizar toda la informacion que manejaremos; asi como las cargas de archivos (con la dependencia Multer).
 
+##
 
 
 
