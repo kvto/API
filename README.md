@@ -42,7 +42,7 @@ Basandonos en los modelos que previamente creamos, nos enfocamos en crear las di
 
 ## Creación de Valdicaciones [validators](https://github.com/kvto/API/blob/main/validators/tracks.js)
 
-Mediante la instalación de `express-validator` en nuestra consola 
+Mediante la instalación de `express-validator` en nuestra consola creamos las distintas validaciones 
 
 
 
