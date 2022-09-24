@@ -40,7 +40,9 @@ Rutas que nos permiten crear y obtener informacion de nuestra API
 
 Basandonos en los modelos que previamente creamos, nos enfocamos en crear las distintas funciones que se van a encargar de crear, eliminar, obtener y actualizar toda la informacion que manejaremos; asi como las cargas de archivos (con la dependencia Multer).
 
-##
+## Creación de Valdicaciones [validators](https://github.com/kvto/API/blob/main/validators/tracks.js)
+
+Mediante la instalación de `express-validator` en nuestra consola 
 
 
 
