@@ -44,6 +44,7 @@ Basandonos en los modelos que previamente creamos, nos enfocamos en crear las di
 
 Mediante la instalación de `express-validator` en nuestra consola creamos las distintas validaciones 
 
+## Creación de los [Middleware](https://github.com/kvto/API/tree/main/middleware)
 
-
+Con la finalidad de manerjar los mensajes de errores de una forma mas eficaz
 
