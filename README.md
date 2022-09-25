@@ -50,4 +50,8 @@ Con la finalidad de manejar los mensajes de errores de una forma mas eficaz
 
 ## Instalación de nuestro Gestor de nuestra BD [Robot 3t](https://robo-3t.software.informer.com/1.4/)
 
-La cual nos podra incorporar a nuestra Api la metodologia de Soft Delete
+La cual nos podra incorporar a nuestra Api la metodologia de Soft Delete.
+
+## Creación de la autenticacion [JWT](https://jwt.io/)
+
+Creamos nuestro token que le servira a que cada usuario pueda iniciar sesion en nuestra API, ademas de firmar y verificar dicho token
