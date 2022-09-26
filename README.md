@@ -46,5 +46,12 @@ Mediante la instalación de `express-validator` en nuestra consola creamos las d
 
 ## Creación de los [Middleware](https://github.com/kvto/API/tree/main/middleware)
 
-Con la finalidad de manerjar los mensajes de errores de una forma mas eficaz
+Con la finalidad de manejar los mensajes de errores de una forma mas eficaz
 
+## Instalación de nuestro Gestor de nuestra BD [Robot 3t](https://robo-3t.software.informer.com/1.4/)
+
+La cual nos podra incorporar a nuestra Api la metodologia de Soft Delete.
+
+## Creación de la autenticacion [JWT](https://jwt.io/)
+
+Creamos nuestro token que le servira a que cada usuario pueda iniciar sesion en nuestra API, ademas de firmar y verificar dicho token
