@@ -1,57 +1,74 @@
-# Creación de API Rest con [Node.js](https://nodejs.org/es/) y [Mongo DB](https://www.mongodb.com/)
+# Rest API creation with [Node.js](https://nodejs.org/es/) and [Mongo DB](https://www.mongodb.com/)
 
-## Creación del Package.json y se instalo las dependencias
+## Package.json creation and dependencies are installed
 
-`npm init --y` para crear nuestro Package.json
+`npm init --y` to create our Package.json
 
 `npm i express cors dotenv multer`
 
-## Creación Aplicacion Express
+## Express Application Creation
 
-Mediante la dependencia [Express](http://expressjs.com/) y [Cors] realizamos la conexion asignandole una variale `PORT`
+Using the dependency [Express](http://expressjs.com/) and [Cors] we make the connection by assigning a variable `PORT`
 
-## Creación Scaffold (Estructura de carpetas)
+## Scaffold creation (folder structure)
 
-[models](https://github.com/kvto/API/tree/main/models): Carpeta correspondiente a la Base de datos.
+[models](https://github.com/kvto/API/tree/main/models): Folder corresponding to the Database.
 
-[controllers](https://github.com/kvto/API/tree/main/controllers): Carpeta correspondiente a los controladores.
+[controllers](https://github.com/kvto/API/tree/main/controllers): Folder corresponding to the controllers.
 
-[routers](https://github.com/kvto/API/tree/main/routes): Carpeta correspondiente a las rutas.
+[routers](https://github.com/kvto/API/tree/main/routes): Folder corresponding to the routes.
 
-[config](https://github.com/kvto/API/tree/main/config): Carpeta correspondiente a la configuracion de la Base de datos o conexiones externas.
+[config](https://github.com/kvto/API/tree/main/config): Folder corresponding to the configuration of the Database or external connections.
 
-[utils](https://github.com/kvto/API/tree/main/utils): Carpeta correspondiente a las funciones (Helpers).
+[utils](https://github.com/kvto/API/tree/main/utils): Folder corresponding to the functions (Helpers).
 
-[storage](https://github.com/kvto/API/tree/main/storage): Carpeta correspondiente al almacenamiento de archivos.
+[storage](https://github.com/kvto/API/tree/main/storage): Folder corresponding to file storage.
 
-## Instalación de [Mongoose](https://mongoosejs.com/) y la creación de la conexion a nuestra Base de Datos.
+## Installing [Mongoose](https://mongoosejs.com/) and creating the connection to our Database.
 
-`npm i mongoose -S` para luego establecer mediante funciones la respectiva conexión (Utilizando las respectivas variables de entorno y los parameteros que Mongoose maneja)
+`npm i mongoose -S` to then establish the respective connection through functions (Using the respective environment variables and the parameters that Mongoose manages)
 
-## Declaramos los modelos 
+## declare the models
 
-`models -> nosql` donde estara nuestros modelos vinculados a Mongo en el archivo [nosql.js](https://github.com/kvto/API/tree/main/models/nosql)
+`models -> nosql` where our Mongo linked models will be in the [nosql.js] file(https://github.com/kvto/API/tree/main/models/nosql)
 
-## Creación de rutas dinamicas [index](https://github.com/kvto/API/blob/main/routes/index.js)
+## Dynamic route creation [index](https://github.com/kvto/API/blob/main/routes/index.js)
 
-Rutas que nos permiten crear y obtener informacion de nuestra API
+Routes that allow us to create and obtain information from our API
 
-## Creación de los controladores de [track](https://github.com/kvto/API/blob/main/controllers/tracks.js) y [storage](https://github.com/kvto/API/blob/main/controllers/storage.js)
+## Create controllers for [track](https://github.com/kvto/API/blob/main/controllers/tracks.js) and [storage](https://github.com/kvto/API/ blob/main/controllers/storage.js)
 
-Basandonos en los modelos que previamente creamos, nos enfocamos en crear las distintas funciones que se van a encargar de crear, eliminar, obtener y actualizar toda la informacion que manejaremos; asi como las cargas de archivos (con la dependencia Multer).
+Based on the models that we previously created, we focus on creating the different functions that will be in charge of creating, deleting, obtaining and updating all the information that we will handle; as well as file uploads (with the Multer dependency).
 
-## Creación de Valdicaciones [validators](https://github.com/kvto/API/blob/main/validators/tracks.js)
+## Creating Validations [validators](https://github.com/kvto/API/blob/main/validators/tracks.js)
 
-Mediante la instalación de `express-validator` en nuestra consola creamos las distintas validaciones 
+By installing `express-validator` in our console we create the different validations
 
-## Creación de los [Middleware](https://github.com/kvto/API/tree/main/middleware)
+## Creating the [Middleware](https://github.com/kvto/API/tree/main/middleware)
 
-Con la finalidad de manejar los mensajes de errores de una forma mas eficaz
+In order to handle error messages more efficiently
 
-## Instalación de nuestro Gestor de nuestra BD [Robot 3t](https://robo-3t.software.informer.com/1.4/)
+## Installation of our Database Manager [Robot 3t](https://robo-3t.software.informer.com/1.4/)
 
-La cual nos podra incorporar a nuestra Api la metodologia de Soft Delete.
+Which we can incorporate the Soft Delete methodology into our Api.
 
-## Creación de la autenticacion [JWT](https://jwt.io/)
+## Create authentication [JWT](https://jwt.io/)
 
-Creamos nuestro token que le servira a que cada usuario pueda iniciar sesion en nuestra API, ademas de firmar y verificar dicho token
+We create our token that will help each user to log in to our API, in addition to signing and verifying said token
+
+## More info about me: 
+<div id="badges" >
+Ing. Kevin J. Montero Zea 
+</div>
+<div id="badges" >
+CE:004712881
+</div>
+<div id="badges" >
+Cel: 913-695-382
+</div>
+<div id="badges" >
+LinkedIn
+</div>
+<div id="badges" >
+Portafolio
+</div>
