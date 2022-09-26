@@ -61,14 +61,25 @@ We create our token that will help each user to log in to our API, in addition t
 Ing. Kevin J. Montero Zea 
 </div>
 <div id="badges" >
-CE:004712881
+CE: 004712881 🆔
 </div>
 <div id="badges" >
-Cel: 913-695-382
++51-913-695-382 📱
 </div>
 <div id="badges" >
-LinkedIn
+<a href="https://www.linkedin.com/in/kevin913montero/">
+    LinkedIn 👨‍🦰
+  </a>
 </div>
 <div id="badges" >
-Portafolio
+<a href="https://portfoliokjmz.netlify.app/">
+    Portfolio 💼
+  </a>
 </div>
+
+
+<p align="center">
+<img height="50" src="./img/logo2.png" />
+<img height="50" src="./img/logo3.png" />
+<img height="50" src="./img/Sin título.png" />
+</p>
