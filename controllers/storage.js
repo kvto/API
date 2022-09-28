@@ -1,65 +1,80 @@
-const { matchedData } = require('express-validator');
-const fs = require('fs')
-const {storageModel} = require('../models');
-const { handleHttpError } = require('../utils/handleError');
-const PUBLIC_URL = process.env.PUBLIC_URL;
-const MEDIA_PATH = `${__dirname}/../storage`
+const fs = require("fs");
+const { matchedData } = require("express-validator");
+const { handleHttpError } = require("../utils/handleError");
+const { storageModel } = require("../models");
+const optionsPaginate = require("../config/paginationParams");
 
+const URL_PUBLIC = process.env.URL_PUBLIC || null;
+const MEDIA_PATH = `${__dirname}/../storage`;
 
-const getItems = async (req,res) =>{ 
-    try{
-    const data = await storageModel.find({});
-    res.send({data})    
-    } catch(e){
-        handleHttpError(res, "Error_Get_Items")
-    }
-    
-}
+/**
+ * Get detail by single row
+ * @param {*} req
+ * @param {*} res
+ */
+const getItem = async (req, res) => {
+  try {
+    req = matchedData(req);
+    const id = req.id;
+    const data = await storageModel.findById(id);
+    res.send({ data });
+  } catch (e) {
+    handleHttpError(res, e);
+  }
+};
 
-const getItem = async (req,res) =>{
-    try{
-        const {id} = matchedData(req)
-        const data = await storageModel.findById(id);
-        res.send({data})    
-        } catch(e){
-            handleHttpError(res, "Error_Detail_Item")
-        }
-}
+/**
+ *
+ * @param {*} req
+ * @param {*} res
+ */
+const getItems = async (req, res) => {
+  try {
+    const [, options] = optionsPaginate(req)
+    const data = await storageModel.paginate({}, options);
+    res.send({ data });
+  } catch (e) {
+    handleHttpError(res, e);
+  }
+};
 
-const createItem = async (req,res) =>{
-    try{
-    const {body, file} = req
-    const fileData = {
-        filename: file.filename,
-        url:`${PUBLIC_URL}/${file.filename}`
-    }
-    const data = await storageModel.create(fileData)
-    res.send({data})    
-    } catch(e){
-        handleHttpError(res, "Error_Create_item")
-    }
-    
+/**
+ * Upload and create record with public source
+ * @param {*} req
+ * @param {*} res
+ */
+const createItem = async (req, res) => {
+  try {
+    const { file } = req;
+    const body = {
+      url: `${URL_PUBLIC}/${file.filename}`,
+      filename: file.filename,
+    };
+    const response = await storageModel.create(body);
+    res.send({ response });
+  } catch (e) {
+    handleHttpError(res, e);
+  }
+};
 
-}
+const deleteItem = async (req, res) => {
+  try {
+    req = matchedData(req);
+    const id = req.id;
+    const findMedia = await storageModel.findById(id);
+    const fileName = findMedia.filename;
+    await storageModel.delete({ _id: id });
+    fs.unlinkSync(`${MEDIA_PATH}/${fileName}`);
 
+    const data = {
+      findMedia: fileName,
+      deleted: true,
+    };
 
-const detleteItem = async (req,res) =>{
-    try{
-        const {id} = matchedData(req)
-        const dataFile = await storageModel.findById(id);
-        await storageModel.delete({_id:id})
-        const {filename} = dataFile;
-        const filePath = `${MEDIA_PATH}/${filename}`
-        // fs.unlinkSync(filePath);
-        const data = {
-            filePath,
-            deleted:1
-        }
-        res.send({data})    
-        } catch(e){
-            handleHttpError(res, "Error_Detail_Item")
-        }
-}
+    res.send({ data });
+  } catch (e) {
+    handleHttpError(res, e);
+  }
+};
 
-
-module.exports = {getItems,createItem,getItem,detleteItem}
+module.exports = { getItems, getItem, createItem, deleteItem };

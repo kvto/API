@@ -1,64 +1,110 @@
-const { matchedData } = require('express-validator');
-const {tracksModel} = require('../models');
-const { handleHttpError } = require('../utils/handleError');
+const mongoose = require("mongoose");
+const { matchedData } = require("express-validator");
+const { handleHttpError } = require("../utils/handleError");
+const { tracksModel } = require("../models");
+const optionsPaginate = require("../config/paginationParams");
 
+/**
+ * Get detail by single row
+ * @param {*} req
+ * @param {*} res
+ */
+const getItem = async (req, res) => {
+  try {
+    req = matchedData(req);
+    const id = req.id;
+    const [data] = await tracksModel.aggregate([
+      {
+        $lookup: {
+          from: "storages",
+          localField: "mediaId",
+          foreignField: "_id",
+          as: "audio",
+        },
+      },
+      { $unwind: "$audio" },
+      {
+        $match: {
+          _id: mongoose.Types.ObjectId(id),
+        },
+      },
+    ]);
 
-const getItems = async (req,res) =>{ 
+    res.send({ data });
+  } catch (e) {
+    handleHttpError(res, e);
+  }
+};
 
-    try {
-    const user = req.user
-    const data = await tracksModel.find({});
-    res.send({data, user})
-    }catch(e){
-        handleHttpError(res, "Error_Get_Items")
-    }
-    
-}
+/**
+ *
+ * @param {*} req
+ * @param {*} res
+ */
+const getItems = async (req, res) => {
+  try {
+    const [, options] = optionsPaginate(req);
+    const data = await tracksModel.paginate({}, options);
+    res.send({ data });
+  } catch (e) {
+    handleHttpError(res, e);
+  }
+};
 
-const getItem = async (req,res) =>{
-    try {
-        req = matchedData(req);
-        const {id} = req;
-        const data = await tracksModel.findById(id);
-        res.send({data})
-    } catch(e){
-        handleHttpError(res, "Error_Get_Itemm")
-    }
-}
+/**
+ * Upload and create record with public source
+ * @param {*} req
+ * @param {*} res
+ */
+const createItem = async (req, res) => {
+  try {
+    req = matchedData(req);
+    console.log(req);
+    const data = await tracksModel.create(req);
+    res.send({ data });
+  } catch (e) {
+    handleHttpError(res, e);
+  }
+};
 
-const createItem = async (req,res) =>{
+/**
+ * update detail row
+ * @param {*} req
+ * @param {*} res
+ */
+const updateItem = async (req, res) => {
+  try {
+    req = matchedData(req);
+    const { id, ...body } = req;
 
-    try {
-        const body = matchedData(req)
-        const data = await tracksModel.create(body)
-        res.send({data})
-        }catch(e){
-            handleHttpError(res, "Error_Create_Items")
-        }
-        
-    
+    const data = await tracksModel.findOneAndUpdate(id, body, {
+      new: true,
+    });
+    res.send({ data });
+  } catch (e) {
+    handleHttpError(res, e);
+  }
+};
 
-}
+/**
+ * delete row
+ * @param {*} req
+ * @param {*} res
+ */
+const deleteItem = async (req, res) => {
+  try {
+    req = matchedData(req);
+    const id = req.id;
+    const findData = await tracksModel.delete({ _id: id });
+    const data = {
+      findData: findData,
+      deleted: true,
+    };
 
-const updateItem = async (req,res) =>{
-    try {
-        const {id, ...body} = matchedData(req) //extrae el id y lo que reste en una constante body
-        const data = await tracksModel.findOneAndUpdate(id, body)
-        res.send({data})
-        }catch(e){
-            handleHttpError(res, "Error_Update_Items")
-        }
-}
+    res.send({ data });
+  } catch (e) {
+    handleHttpError(res, e);
+  }
+};
 
-const detleteItem = async (req,res) =>{
-    try {
-        req = matchedData(req);
-        const {id} = req;
-        const data = await tracksModel.delete({_id:id});
-        res.send({data})
-    } catch(e){
-        handleHttpError(res, "Error_Delete_Itemm")
-    }
-}
-
-module.exports = {getItems,createItem,updateItem,getItem,detleteItem}
+module.exports = { getItems, getItem, createItem, updateItem, deleteItem };

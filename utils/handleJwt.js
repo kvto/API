@@ -1,26 +1,24 @@
-const jwt = require("jsonwebtoken")
-const JWT_SECRET= process.env.JWT_SECRET
+const bcrypt = require("bcryptjs");
 
-const tokenSign = async (user) => {
-const sign = jwt.sign(
-    {
-        _id: user._id,
-        role: user.role
-    },
-    JWT_SECRET,
-    {
-        expiresIn: "2h",
-    }
-)
-return sign
-}
+/**
+ * Encrypt textplain
+ * @param {*} textPlain 
+ * @returns 
+ */
+const encrypt = async (textPlain) => {
+  const hash = await bcrypt.hash(textPlain, 10);
+  return hash;
+};
 
-const verifyToken = async (tokenJwt) => {
-    try{
-        return jwt.verify(tokenJwt, JWT_SECRET)
-    }catch(e){
-        return null
-    }
-} 
 
-module.exports = {tokenSign, verifyToken}
+/**
+ * Comparte password with hash
+ * @param {*} passwordPlain 
+ * @param {*} hashPassword 
+ * @returns 
+ */
+const compare = async (passwordPlain, hashPassword) => {
+  return await bcrypt.compare(passwordPlain, hashPassword);
+};
+
+module.exports = { encrypt, compare };
