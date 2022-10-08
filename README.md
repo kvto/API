@@ -30,13 +30,13 @@ Using the dependency [Express](http://expressjs.com/) and [Cors] we make the con
 
 ## declare the models
 
-`models -> nosql` where our Mongo linked models will be in the [nosql.js] file(https://github.com/kvto/API/tree/main/models/nosql)
+`models -> nosql` where our Mongo linked models will be in the [nosql.js](https://github.com/kvto/API/tree/main/models/nosql)
 
 ## Dynamic route creation [index](https://github.com/kvto/API/blob/main/routes/index.js)
 
 Routes that allow us to create and obtain information from our API
 
-## Create controllers for [track](https://github.com/kvto/API/blob/main/controllers/tracks.js) and [storage](https://github.com/kvto/API/ blob/main/controllers/storage.js)
+## Create controllers for [track](https://github.com/kvto/API/blob/main/controllers/tracks.js) and [storage](https://github.com/kvto/API/blob/main/controllers/storage.js)
 
 Based on the models that we previously created, we focus on creating the different functions that will be in charge of creating, deleting, obtaining and updating all the information that we will handle; as well as file uploads (with the Multer dependency).
 
